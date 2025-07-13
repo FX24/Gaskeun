@@ -21,7 +21,7 @@ public class Booking {
 
     private String userId;
     private String pickupLocation;
-    private String dropoffLocation;
+    private String dropOffLocation;
 
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
