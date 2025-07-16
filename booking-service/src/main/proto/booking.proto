@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.fx24.bookingservice.proto";
+option java_outer_classname = "BookingProto";
+
+message BookingRequest {
+  string user_id = 1;
+  string pickup_location = 2;
+  string dropoff_location = 3;
+}
+
+message BookingResponse {
+  string id = 1;
+  string status = 2;
+  string pickup_location = 3;
+  string dropoff_location = 4;
+  string created_at = 5;
+}
+
+message BookingId {
+  string id = 1;
+}
+
+service BookingService {
+  rpc CreateBooking(BookingRequest) returns (BookingResponse);
+  rpc GetBooking(BookingId) returns (BookingResponse);
+}
