@@ -1,7 +1,7 @@
 package com.fx24.bookingservice.controller;
 
 import com.fx24.bookingservice.domain.Booking;
-import com.fx24.bookingservice.usecase.BookingService;
+import com.fx24.bookingservice.application.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

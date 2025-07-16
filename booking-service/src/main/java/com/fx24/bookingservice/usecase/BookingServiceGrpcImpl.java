@@ -1,18 +1,14 @@
 package com.fx24.bookingservice.usecase;
 
+import com.fx24.bookingservice.application.service.BookingService;
 import com.fx24.bookingservice.domain.Booking;
-import com.fx24.bookingservice.domain.BookingStatus;
 import com.fx24.bookingservice.proto.BookingId;
-import com.fx24.bookingservice.proto.BookingProto;
 import com.fx24.bookingservice.proto.BookingRequest;
 import com.fx24.bookingservice.proto.BookingResponse;
 import com.fx24.bookingservice.proto.BookingServiceGrpc;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
-import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
-
-import java.util.UUID;
 
 @GrpcService
 public class BookingServiceGrpcImpl extends BookingServiceGrpc.BookingServiceImplBase {

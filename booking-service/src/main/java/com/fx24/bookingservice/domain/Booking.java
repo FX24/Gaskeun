@@ -15,6 +15,13 @@ import java.util.UUID;
 @Builder
 public class Booking {
 
+    public Booking(UUID id, String userId, String pickupLocation, String dropOffLocation) {
+        this.id = id;
+        this.userId = userId;
+        this.pickupLocation = pickupLocation;
+        this.dropOffLocation = dropOffLocation;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
