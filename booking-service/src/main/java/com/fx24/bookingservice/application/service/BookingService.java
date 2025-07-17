@@ -1,6 +1,6 @@
 package com.fx24.bookingservice.application.service;
 
-import com.fx24.bookingservice.application.port.out.BookingKafkaProducerPort;
+import com.fx24.bookingservice.application.port.out.event.BookingKafkaProducer;
 import com.fx24.bookingservice.domain.Booking;
 import com.fx24.bookingservice.event.BookingCreatedEvent;
 import com.fx24.bookingservice.repository.BookingRepository;
@@ -15,15 +15,14 @@ import java.util.UUID;
 public class BookingService {
 
     private final BookingRepository bookingRepository;
-    private final BookingKafkaProducerPort kafkaProducer;
+    private final BookingKafkaProducer kafkaProducer;
 
     public Booking createBooking(Booking request) {
-        Booking booking = new Booking(
-                UUID.randomUUID(),
-                request.getUserId(),
-                request.getPickupLocation(),
-                request.getDropOffLocation()
-        );
+        Booking booking = Booking.builder()
+                .userId(request.getUserId())
+                .pickupLocation(request.getPickupLocation())
+                .dropOffLocation(request.getDropOffLocation())
+                .build();
 
         bookingRepository.save(booking);
 

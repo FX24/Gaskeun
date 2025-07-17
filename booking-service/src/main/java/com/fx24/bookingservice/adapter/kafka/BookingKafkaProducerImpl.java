@@ -1,7 +1,7 @@
 package com.fx24.bookingservice.adapter.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fx24.bookingservice.application.port.out.BookingKafkaProducerPort;
+import com.fx24.bookingservice.application.port.out.event.BookingKafkaProducer;
 import com.fx24.bookingservice.event.BookingCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class BookingKafkaProducerPortImpl implements BookingKafkaProducerPort {
+public class BookingKafkaProducerImpl implements BookingKafkaProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
